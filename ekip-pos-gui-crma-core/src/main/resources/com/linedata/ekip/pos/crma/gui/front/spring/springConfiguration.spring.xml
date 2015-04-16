@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- Ne doit contenir que des import!!! Pas de déclaration de bean ICI -->
+	<import resource="classpath:com/linedata/ekip/pos/crma/gui/front/spring/Chiffrage.spring.xml" />
+</beans>

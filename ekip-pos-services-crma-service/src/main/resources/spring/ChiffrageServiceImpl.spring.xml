@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+   
+   
+   <!-- Generated 27/03/2015 18:23:02 by Ekip Framework Released beta -->
+   
+    <import resource="classpath:spring/Chiffrage.service-api.spring.xml" />
+    
+    <import resource="classpath:crma/spring/ChiffrageDaoImpl.spring.xml"/>
+   
+    <!-- ChiffrageServiceImpl -->
+   <bean id="ChiffrageService" class="com.linedata.ekip.pos.services.crma.service.impl.ChiffrageServiceImpl">
+      <property name="mapper" ref="ChiffrageDetail"></property>
+   </bean>
+   <bean id="ChiffrageDetail" class="com.linedata.ekip.std.services.core.bean.BeanMapper">
+      <property name="mappingFiles">
+         <list>
+            <value>dozer/global.mapping.xml</value>
+            <value>dozer/Chiffrage.mapping.xml</value>
+         </list>
+      </property>
+   </bean>
+   
+</beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<form xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ChiffrageForm"
+	xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd" >
+	
+    <graphic>
+		<headerVisible>true</headerVisible>
+		<borderVisible>true</borderVisible>
+		<fieldSetMode>true</fieldSetMode>
+		<collapsible>false</collapsible>
+	</graphic>
+
+	<areas>
+		<area id="firstArea">
+			<graphic>
+				<headerVisible>false</headerVisible>
+				<borderVisible>false</borderVisible>
+				<fieldSetMode>false</fieldSetMode>
+			</graphic>
+			<fields>
+				<field id="id" nature="number"    hidden="false" columnNumber="1">
+					</field>
+				
+				<field id="label" nature="string"    hidden="false" columnNumber="1">
+					</field>
+				<field id="produit" nature="lov"    hidden="false" displayTemplate="{value} - {longLabel}" lov="STEX" columnNumber="2">
+					</field>
+		    </fields>
+		</area>
+    </areas>			
+
+	
+</form>

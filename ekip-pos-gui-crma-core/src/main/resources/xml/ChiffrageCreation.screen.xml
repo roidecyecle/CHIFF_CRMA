@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<function xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" beanId="ChiffrageFunctionService" icon="icons/AllocatedLoanContractSynthesis.png"
+   id="ChiffrageCreation" type="create" xsi:noNamespaceSchemaLocation="http://shyrka:8989/scheme/function.xsd">
+
+   <form id="ChiffrageForm"   fatherId="ChiffrageForm" editable="true">
+	<graphic>
+     <headerVisible>true</headerVisible>
+     <collapsible>false</collapsible>
+     <borderVisible>true</borderVisible>
+     <fieldSetMode>true</fieldSetMode>
+    </graphic>
+	<inParameters>
+		<inParameter eventType="SCREENCONTEXT" />
+	</inParameters>
+   </form>
+	
+	
+	
+   <screenActions>
+		<entityAction entityLocation="SCREENCONTEXT" id="ChiffrageEntityAction" sortNumber="0">
+		</entityAction>
+   </screenActions>
+</function>

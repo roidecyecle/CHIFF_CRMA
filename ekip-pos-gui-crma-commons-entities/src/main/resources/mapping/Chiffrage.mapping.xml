@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping map-id="ChiffrageToChiffrageData" wildcard="true" map-null="false" map-empty-string="false">
+		<class-a>com.linedata.ekip.pos.services.crma.entity.impl.ChiffrageImpl
+		</class-a>
+		<class-b map-set-method="set" map-get-method="get">com.linedata.ekip.entities.shared.crma.ChiffrageData
+		</class-b>
+      	<field>
+         	<a>id</a>
+         	<b key="id">this</b>
+        	<a-hint>java.lang.Integer</a-hint>
+        </field>
+      	<field>
+         	<a>label</a>
+         	<b key="label">this</b>
+        	<a-hint>java.lang.String</a-hint>
+        </field>
+      	<field>
+         	<a>produit</a>
+         	<b key="produit">this</b>
+        	<a-hint>java.lang.String</a-hint>
+        </field>
+   </mapping>
+</mappings>

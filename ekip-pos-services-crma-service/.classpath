@@ -1,0 +1,81 @@
+<classpath>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" sourcepath="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar" sourcepath="M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/commons-collections/commons-collections/3.1/commons-collections-3.1.jar" sourcepath="M2_REPO/commons-collections/commons-collections/3.1/commons-collections-3.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" sourcepath="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.5/commons-lang-2.5.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.5/commons-lang-2.5-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" sourcepath="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sf/dozer/dozer/5.4.0/dozer-5.4.0.jar" sourcepath="M2_REPO/net/sf/dozer/dozer/5.4.0/dozer-5.4.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/net/sf/dozer/dozer/5.4.0/dozer-5.4.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/ekip/pos/bancomer/proj/services/commons/entities/ekip-pos-services-commons-entities-references/3.0.0-SNAPSHOT/ekip-pos-services-commons-entities-references-3.0.0-SNAPSHOT.jar" sourcepath="M2_REPO/ekip/pos/bancomer/proj/services/commons/entities/ekip-pos-services-commons-entities-references/3.0.0-SNAPSHOT/ekip-pos-services-commons-entities-references-3.0.0-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/ekip/pos/bancomer/proj/crma/service/api/ekip-pos-services-crma-service-api/3.0.0-SNAPSHOT/ekip-pos-services-crma-service-api-3.0.0-SNAPSHOT.jar" sourcepath="M2_REPO/ekip/pos/bancomer/proj/crma/service/api/ekip-pos-services-crma-service-api/3.0.0-SNAPSHOT/ekip-pos-services-crma-service-api-3.0.0-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/linedata/fwk360/commons/fwk360-commons/1.2.6/fwk360-commons-1.2.6.jar" sourcepath="M2_REPO/com/linedata/fwk360/commons/fwk360-commons/1.2.6/fwk360-commons-1.2.6-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/com/linedata/fwk360/commons/fwk360-commons/1.2.6/fwk360-commons-1.2.6-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/linedata/fwk360/services/fwk360-services-core-dao-api/1.2.6/fwk360-services-core-dao-api-1.2.6.jar" sourcepath="M2_REPO/com/linedata/fwk360/services/fwk360-services-core-dao-api/1.2.6/fwk360-services-core-dao-api-1.2.6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/linedata/fwk360/services/fwk360-services-core-service/1.2.6/fwk360-services-core-service-1.2.6.jar" sourcepath="M2_REPO/com/linedata/fwk360/services/fwk360-services-core-service/1.2.6/fwk360-services-core-service-1.2.6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/linedata/fwk360/services/fwk360-services-core-service-api/1.2.6/fwk360-services-core-service-api-1.2.6.jar" sourcepath="M2_REPO/com/linedata/fwk360/services/fwk360-services-core-service-api/1.2.6/fwk360-services-core-service-api-1.2.6-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/com/linedata/fwk360/services/fwk360-services-core-service-api/1.2.6/fwk360-services-core-service-api-1.2.6-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar" sourcepath="M2_REPO/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.16/log4j-1.2.16.jar" sourcepath="M2_REPO/log4j/log4j/1.2.16/log4j-1.2.16-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/log4j/log4j/1.2.16/log4j-1.2.16-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.6.6/slf4j-log4j12-1.6.6.jar" sourcepath="M2_REPO/org/slf4j/slf4j-log4j12/1.6.6/slf4j-log4j12-1.6.6-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/dev/maven2/repository/org/slf4j/slf4j-log4j12/1.6.6/slf4j-log4j12-1.6.6-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-tx/3.1.0.RELEASE/spring-tx-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-tx/3.1.0.RELEASE/spring-tx-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/3.1.0.RELEASE/spring-web-3.1.0.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-web/3.1.0.RELEASE/spring-web-3.1.0.RELEASE-sources.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>

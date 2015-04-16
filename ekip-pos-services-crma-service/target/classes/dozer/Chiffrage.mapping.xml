@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+   <!-- Generated 27/03/2015 18:23:02 by Ekip Framework Released beta -->
+   
+   <mapping wildcard="true">
+      <class-a>com.linedata.ekip.pos.services.crma.model.impl.ChiffrageModelImpl
+      </class-a>
+      <class-b>com.linedata.ekip.pos.services.crma.entity.impl.ChiffrageImpl
+      </class-b>
+   </mapping>
+      
+   <mapping wildcard="true">
+        <class-a>com.linedata.ekip.pos.services.entity.crma.impl.ChiffrageReferenceImpl</class-a>
+        <class-b>com.linedata.ekip.pos.services.crma.model.impl.ChiffrageModelReferenceImpl</class-b>
+    </mapping>
+   
+   <mapping wildcard="true" map-null="false" map-empty-string="false" map-id="mapToChiffrage">
+      <class-a map-null="false" map-set-method="set" map-get-method="get">
+         org.springframework.util.LinkedCaseInsensitiveMap
+      </class-a>
+      <class-b>com.linedata.ekip.pos.services.crma.entity.impl.ChiffrageImpl
+      </class-b>
+   </mapping>
+   
+</mappings>
