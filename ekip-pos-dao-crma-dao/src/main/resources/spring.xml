@@ -11,9 +11,12 @@
 
 
 
-	<context:component-scan base-package="com.linedata"></context:component-scan>
-
-
+	<bean id="productdao" class="com.linedata.ekip.pos.crma.dao.crma.ProductDaoImpl"></bean>
+	<bean id="subjectdao" class="com.linedata.ekip.pos.crma.dao.crma.SubjectDaoImpl"></bean>
+	<bean id="authordao" class="com.linedata.ekip.pos.crma.dao.crma.AuthorDaoImpl"></bean>
+	<bean id="estimationdao" class="com.linedata.ekip.pos.crma.dao.crma.EstimationDaoImpl"></bean>
+	<bean id="unitofworkdao" class="com.linedata.ekip.pos.crma.dao.crma.UnitOfWorkDaoImpl"></bean> 
+	
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -42,6 +45,6 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
+	<context:annotation-config></context:annotation-config>
 	
 </beans>
