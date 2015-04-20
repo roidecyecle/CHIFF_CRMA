@@ -15,15 +15,15 @@ import javax.persistence.Table;
 public class Product implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private long id;
 	private String label;
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getLabel() {

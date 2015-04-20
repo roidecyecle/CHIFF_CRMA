@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +20,17 @@ public class UnitOfWork implements Serializable{
 	private long id;
 	private String label;
 	private float costJH;
+	private float costH;
+	@OneToOne
+	@JoinColumn(name="ACTION_TYPE")
+	private ActionType actionType;
 	@ManyToOne
 	@JoinColumn(name="CODE_ESTIMATION")
 	private Estimation estimation;
- 
+//	@ManyToOne
+//	@JoinColumn(name="CODE_ABACUS")
+//	private Abacus abacus;
+// 
 		
 	public UnitOfWork(String label, float costJH) {
 		super();
@@ -53,6 +61,30 @@ public class UnitOfWork implements Serializable{
 	}
 	public void setEstimation(Estimation estimation) {
 		this.estimation = estimation;
+	}
+
+	public float getCostH() {
+		return costH;
+	}
+
+	public void setCostH(float costH) {
+		this.costH = costH;
+	}
+
+//	public Abacus getAbacus() {
+//		return abacus;
+//	}
+//
+//	public void setAbacus(Abacus abacus) {
+//		this.abacus = abacus;
+//	}
+
+	public ActionType getActionType() {
+		return actionType;
+	}
+
+	public void setActionType(ActionType actionType) {
+		this.actionType = actionType;
 	}
 
 	

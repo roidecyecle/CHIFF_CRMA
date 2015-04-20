@@ -1,13 +1,20 @@
 package com.linedata.ekip.pos.dao.model.impl;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "SUBJECT")
@@ -18,17 +25,25 @@ public class Subject implements Serializable {
 	private long id;
 	private String description;
 	private String version_study;
+	@Temporal(TemporalType.DATE)
 	private Date date_study;
 	private String version;
+	@ManyToOne
+	@JoinColumn(name="ID_PRODUCT")
 	private Product produit;
+	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY)
+	private Collection<Estimation> estimation;
 
-	public Subject(String description, String version_study, Date date_study,
-			String version) {
+	public Subject(String description, String version_study, Date date_study,String version) {
 		super();
 		this.description = description;
 		this.version_study = version_study;
 		this.date_study = date_study;
 		this.version = version;
+	}
+
+	public Subject() {
+		super();
 	}
 
 	public long getId() {
@@ -78,5 +93,14 @@ public class Subject implements Serializable {
 	public void setProduit(Product produit) {
 		this.produit = produit;
 	}
+
+	public Collection<Estimation> getEstimation() {
+		return estimation;
+	}
+
+	public void setEstimation(Collection<Estimation> estimation) {
+		this.estimation = estimation;
+	}
+
 
 }

@@ -2,32 +2,49 @@ package com.linedata.ekip.pos.dao.model.impl;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ESTIMATION")
 public class Estimation implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="E_DATE")
+	private Date date;
 	private String label;
 	private String status;
 	@OneToMany(mappedBy="estimation",fetch=FetchType.LAZY)
 	private Collection<UnitOfWork> unitsOfWork;
+	@ManyToOne
+	@JoinColumn(name="ID_SUBJECT")
 	private Subject subject;
+	@ManyToOne
+	@JoinColumn(name="ID_AUTOR")
 	private Author author;
 
-	public Estimation(int id, String label) {
-		this.id = id;
+	
+
+	public Estimation(Date date, String label, String status) {
+		super();
+		this.date = date;
 		this.label = label;
+		this.status = status;
 	}
 
 	public Estimation() {
@@ -85,5 +102,13 @@ public class Estimation implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,10 +14,12 @@ import javax.persistence.Table;
 public class ActionType implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private long id;
 	private String label;
 	private float coefficient;
+	@OneToOne
+	private UnitOfWork unitOfWork;
 	
 	
 	public long getId() {
@@ -36,5 +39,11 @@ public class ActionType implements Serializable{
 	}
 	public void setCoefficient(float coefficient) {
 		this.coefficient = coefficient;
+	}
+	public UnitOfWork getUnitOfWork() {
+		return unitOfWork;
+	}
+	public void setUnitOfWork(UnitOfWork unitOfWork) {
+		this.unitOfWork = unitOfWork;
 	}
 }
