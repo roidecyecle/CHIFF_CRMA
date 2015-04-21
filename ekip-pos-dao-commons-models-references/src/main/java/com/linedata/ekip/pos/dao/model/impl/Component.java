@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,13 +18,18 @@ import javax.persistence.Table;
 public class Component implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private long id;
 	private String label;
-	@ManyToMany(mappedBy="components")
-	private Collection<Complexity> comlexitys;
+			
+	public Component() {
+		super();
+	}
 	
-	
+	public Component(String label) {
+		this.label = label;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -34,5 +42,6 @@ public class Component implements Serializable{
 	public void setLabel(String label) {
 		this.label = label;
 	}
+
 
 }

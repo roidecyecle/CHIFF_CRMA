@@ -19,10 +19,18 @@ public class Complexity implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String label;
-	@ManyToMany
-	@JoinTable(name="ABAQUES")
-	private Collection<Component> components;
 	
+	
+	public Complexity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Complexity(String label) {
+		super();
+		this.label = label;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -35,11 +43,7 @@ public class Complexity implements Serializable{
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	public Collection<Component> getComponents() {
-		return components;
-	}
-	public void setComponents(Collection<Component> components) {
-		this.components = components;
-	}
+
+
 	
 }

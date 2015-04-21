@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class UnitOfWork implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private long id;
 	private String label;
 	private float costJH;
@@ -27,10 +27,10 @@ public class UnitOfWork implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="CODE_ESTIMATION")
 	private Estimation estimation;
-//	@ManyToOne
-//	@JoinColumn(name="CODE_ABACUS")
-//	private Abacus abacus;
-// 
+	@ManyToOne
+	@JoinColumn(name="CODE_ABACUS")
+	private Abacus abacus;
+ 
 		
 	public UnitOfWork(String label, float costJH) {
 		super();
@@ -71,13 +71,13 @@ public class UnitOfWork implements Serializable{
 		this.costH = costH;
 	}
 
-//	public Abacus getAbacus() {
-//		return abacus;
-//	}
-//
-//	public void setAbacus(Abacus abacus) {
-//		this.abacus = abacus;
-//	}
+	public Abacus getAbacus() {
+		return abacus;
+	}
+
+	public void setAbacus(Abacus abacus) {
+		this.abacus = abacus;
+	}
 
 	public ActionType getActionType() {
 		return actionType;

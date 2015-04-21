@@ -23,14 +23,20 @@ public class Subject implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	private String description;
+	
 	private String version_study;
+	
 	@Temporal(TemporalType.DATE)
 	private Date date_study;
+	
 	private String version;
+	
 	@ManyToOne
 	@JoinColumn(name="ID_PRODUCT")
 	private Product produit;
+	
 	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY)
 	private Collection<Estimation> estimation;
 

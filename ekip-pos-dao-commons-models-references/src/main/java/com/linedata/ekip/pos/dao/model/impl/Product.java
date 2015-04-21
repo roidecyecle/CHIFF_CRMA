@@ -1,11 +1,13 @@
 package com.linedata.ekip.pos.dao.model.impl;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -18,7 +20,8 @@ public class Product implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private long id;
 	private String label;
-	
+	@OneToMany
+	private Collection<Subject> subjects;
 	
 	public long getId() {
 		return id;
@@ -31,6 +34,12 @@ public class Product implements Serializable{
 	}
 	public void setLabel(String label) {
 		this.label = label;
+	}
+	public Collection<Subject> getSubjects() {
+		return subjects;
+	}
+	public void setSubjects(Collection<Subject> subjects) {
+		this.subjects = subjects;
 	}
 	
 }

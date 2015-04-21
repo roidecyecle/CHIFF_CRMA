@@ -18,10 +18,20 @@ public class ActionType implements Serializable{
 	private long id;
 	private String label;
 	private float coefficient;
-	@OneToOne
-	private UnitOfWork unitOfWork;
 	
 	
+	
+	
+	public ActionType() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public ActionType(String label, float coefficient) {
+		super();
+		this.label = label;
+		this.coefficient = coefficient;
+	}
 	public long getId() {
 		return id;
 	}
@@ -40,10 +50,5 @@ public class ActionType implements Serializable{
 	public void setCoefficient(float coefficient) {
 		this.coefficient = coefficient;
 	}
-	public UnitOfWork getUnitOfWork() {
-		return unitOfWork;
-	}
-	public void setUnitOfWork(UnitOfWork unitOfWork) {
-		this.unitOfWork = unitOfWork;
-	}
+
 }
