@@ -6,12 +6,20 @@ import java.util.Calendar;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.linedata.ekip.pos.crma.api.AbacusDao;
+import com.linedata.ekip.pos.crma.api.ActionTypeDao;
 import com.linedata.ekip.pos.crma.api.AuthorDao;
+import com.linedata.ekip.pos.crma.api.ComplexityDao;
+import com.linedata.ekip.pos.crma.api.ComponentDao;
 import com.linedata.ekip.pos.crma.api.EstimationDao;
 import com.linedata.ekip.pos.crma.api.ProductDao;
 import com.linedata.ekip.pos.crma.api.SubjectDao;
 import com.linedata.ekip.pos.crma.api.UnitOfWorkDao;
+import com.linedata.ekip.pos.dao.model.impl.Abacus;
+import com.linedata.ekip.pos.dao.model.impl.ActionType;
 import com.linedata.ekip.pos.dao.model.impl.Author;
+import com.linedata.ekip.pos.dao.model.impl.Complexity;
+import com.linedata.ekip.pos.dao.model.impl.Component;
 import com.linedata.ekip.pos.dao.model.impl.Estimation;
 import com.linedata.ekip.pos.dao.model.impl.Product;
 import com.linedata.ekip.pos.dao.model.impl.Subject;
@@ -32,6 +40,10 @@ public abstract class test {
 		AuthorDao authorDao = (AuthorDao) ctx.getBean("authordao");
 		EstimationDao estimationDao = (EstimationDao) ctx.getBean("estimationdao");
 		UnitOfWorkDao unitOfWorkDao = (UnitOfWorkDao) ctx.getBean("unitofworkdao");
+		ComponentDao componentDao = (ComponentDao) ctx.getBean("componentdao");
+		ComplexityDao complexityDao = (ComplexityDao) ctx.getBean("complexitydao");
+		AbacusDao abacusDao = (AbacusDao) ctx.getBean("abacusdao");
+		ActionTypeDao actionTypeDao = (ActionTypeDao) ctx.getBean("actiontypedao");
 		
 
 		Product p = new Product();
@@ -58,11 +70,23 @@ public abstract class test {
 		estimationDao.addEstimation(est1, a.getId(), s.getId());
 		estimationDao.addEstimation(est2, a.getId(), s.getId());
 		
-		unitOfWorkDao.addUniOfWork(unit1, est1.getId());
-		unitOfWorkDao.addUniOfWork(unit2, est2.getId());
-		unitOfWorkDao.addUniOfWork(unit3, est2.getId());
-		unitOfWorkDao.addUniOfWork(unit4, est1.getId());
+		Component comp = new Component("Block");
+		componentDao.addComponent(comp);
+//		Complexity comx = new Complexity("facile");
+//		complexityDao.addComplexity(comx);
+		ActionType action = new ActionType("Creation", 5);
+		actionTypeDao.addActionType(action);
 		
+		
+		Abacus abac = new Abacus(5.2F);
+		
+		abacusDao.addElement(abac, comp.getId(), 1);
+		
+		
+		unitOfWorkDao.addUniOfWork(unit1, est1.getId(),action.getId(),abac.getIdAbacus());
+		unitOfWorkDao.addUniOfWork(unit2, est2.getId(),action.getId(),abac.getIdAbacus());
+		unitOfWorkDao.addUniOfWork(unit3, est1.getId(),action.getId(),abac.getIdAbacus());	
+		unitOfWorkDao.addUniOfWork(unit4, est2.getId(),action.getId(),abac.getIdAbacus());
 		
 	}
 

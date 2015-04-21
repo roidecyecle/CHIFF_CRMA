@@ -15,7 +15,11 @@
 	<bean id="subjectdao" class="com.linedata.ekip.pos.crma.dao.crma.SubjectDaoImpl"></bean>
 	<bean id="authordao" class="com.linedata.ekip.pos.crma.dao.crma.AuthorDaoImpl"></bean>
 	<bean id="estimationdao" class="com.linedata.ekip.pos.crma.dao.crma.EstimationDaoImpl"></bean>
-	<bean id="unitofworkdao" class="com.linedata.ekip.pos.crma.dao.crma.UnitOfWorkDaoImpl"></bean> 
+	<bean id="unitofworkdao" class="com.linedata.ekip.pos.crma.dao.crma.UnitOfWorkDaoImpl"></bean>
+	<bean id="componentdao" class="com.linedata.ekip.pos.crma.dao.crma.ComponentDaoImpl"></bean> 
+	<bean id="complexitydao" class="com.linedata.ekip.pos.crma.dao.crma.ComplexityDaoImpl"></bean> 
+	<bean id="abacusdao" class="com.linedata.ekip.pos.crma.dao.crma.AbacusDaoImpl"></bean>  
+	<bean id="actiontypedao" class="com.linedata.ekip.pos.crma.dao.crma.ActionTypeDaoImpl"></bean>
 	
 
 	<bean id="dataSource"

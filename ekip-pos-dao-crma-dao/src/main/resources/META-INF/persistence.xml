@@ -15,11 +15,12 @@
       <class>com.linedata.ekip.pos.dao.model.impl.Component</class>
       <class>com.linedata.ekip.pos.dao.model.impl.Product</class>
       <class>com.linedata.ekip.pos.dao.model.impl.UnitOfWork</class>
+      <class>com.linedata.ekip.pos.dao.model.impl.Abacus</class>
       
       
       <properties>
-      	<property name="hibernate.show_sql" value="false"/>
-      	<property name="hibernate.hbm2ddl.auto" value="update"/>
+      	<property name="hibernate.show_sql" value="true"/>
+      	<property name="hibernate.hbm2ddl.auto" value="create"/>
       	
         <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver" />
         <property name="hibernate.connection.url" value="jdbc:oracle:thin:@tn1orc03:1521:LDSTOOLS" />

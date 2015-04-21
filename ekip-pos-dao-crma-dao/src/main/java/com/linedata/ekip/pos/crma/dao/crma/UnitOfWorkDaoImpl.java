@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.linedata.ekip.pos.crma.api.UnitOfWorkDao;
+import com.linedata.ekip.pos.dao.model.impl.Abacus;
+import com.linedata.ekip.pos.dao.model.impl.ActionType;
 import com.linedata.ekip.pos.dao.model.impl.Estimation;
 import com.linedata.ekip.pos.dao.model.impl.UnitOfWork;
 
@@ -18,9 +20,13 @@ public class UnitOfWorkDaoImpl implements UnitOfWorkDao{
 	private EntityManager em;
 
 	@Override
-	public UnitOfWork addUniOfWork(UnitOfWork unit, Long idEstimation) {
+	public UnitOfWork addUniOfWork(UnitOfWork unit, long idEstimation, long idActionType, long idAbacus) {
 		Estimation estimation = em.find(Estimation.class, idEstimation);
+		Abacus abacus = em.find(Abacus.class, idAbacus);
+		ActionType action = em.find(ActionType.class, idActionType);
 		unit.setEstimation(estimation);
+		unit.setActionType(action);
+		unit.setAbacus(abacus);
 		em.persist(unit);
 		return unit;
 	}
