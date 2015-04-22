@@ -3,6 +3,7 @@ package com.linedata.ekip.pos.dao.model.impl;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,11 +22,11 @@ public class UnitOfWork implements Serializable{
 	private String label;
 	private float costJH;
 	private float costH;
-	@OneToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="ACTION_TYPE")
 	private ActionType actionType;
-	@ManyToOne
-	@JoinColumn(name="CODE_ESTIMATION")
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="ID_ESTIMATION")
 	private Estimation estimation;
 	@ManyToOne
 	@JoinColumn(name="CODE_ABACUS")
@@ -38,6 +39,11 @@ public class UnitOfWork implements Serializable{
 		this.costJH = costJH;
 	}
 	
+	public UnitOfWork() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}

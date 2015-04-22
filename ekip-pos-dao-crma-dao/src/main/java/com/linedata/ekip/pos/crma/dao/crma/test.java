@@ -1,7 +1,9 @@
 package com.linedata.ekip.pos.crma.dao.crma;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -72,22 +74,38 @@ public abstract class test {
 		
 		Component comp = new Component("Block");
 		componentDao.addComponent(comp);
-//		Complexity comx = new Complexity("facile");
-//		complexityDao.addComplexity(comx);
+		Component comp2 = new Component("Screen");
+		componentDao.addComponent(comp2);
+		
+		Complexity comx = new Complexity("facile");
+		complexityDao.addComplexity(comx);
+		
 		ActionType action = new ActionType("Creation", 5);
 		actionTypeDao.addActionType(action);
 		
 		
 		Abacus abac = new Abacus(5.2F);
+		Abacus abac2 = new Abacus(5.2F);
 		
-		abacusDao.addElement(abac, comp.getId(), 1);
-		
+		abacusDao.addElement(abac, comp.getId(), comx.getId());
+		abacusDao.addElement(abac2, comp2.getId(), comx.getId());
 		
 		unitOfWorkDao.addUniOfWork(unit1, est1.getId(),action.getId(),abac.getIdAbacus());
 		unitOfWorkDao.addUniOfWork(unit2, est2.getId(),action.getId(),abac.getIdAbacus());
 		unitOfWorkDao.addUniOfWork(unit3, est1.getId(),action.getId(),abac.getIdAbacus());	
-		unitOfWorkDao.addUniOfWork(unit4, est2.getId(),action.getId(),abac.getIdAbacus());
+		unitOfWorkDao.addUniOfWork(unit4, est1.getId(),action.getId(),abac.getIdAbacus());
 		
+		
+		ArrayList<UnitOfWork> list = (ArrayList<UnitOfWork>) estimationDao.getAllUnits(est2.getId());
+		ArrayList<Estimation> list2 = (ArrayList<Estimation>) estimationDao.getAllEstimationByLabel("");
+		
+		for(int i=0; i<=list.size();i++){
+			System.out.println(list2.get(i).getlabel());
+		}
+		
+		System.out.println(estimationDao.getEstimation(est2.getId()).getUnitsOfWork().size());
+		
+
 	}
 
 }

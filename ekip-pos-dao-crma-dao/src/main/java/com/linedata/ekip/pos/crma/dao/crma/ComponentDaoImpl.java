@@ -1,6 +1,7 @@
 package com.linedata.ekip.pos.crma.dao.crma;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,7 @@ import com.linedata.ekip.pos.dao.model.impl.Component;
 @Transactional
 public class ComponentDaoImpl implements ComponentDao{
 	
+	@PersistenceContext
 	private EntityManager em;
 
 	@Override

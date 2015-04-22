@@ -1,9 +1,11 @@
 package com.linedata.ekip.pos.dao.model.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 @Table(name = "ESTIMATION")
 public class Estimation implements Serializable {
@@ -29,8 +33,11 @@ public class Estimation implements Serializable {
 	private Date date;
 	private String label;
 	private String status;
-	@OneToMany(mappedBy="estimation",fetch=FetchType.LAZY)
-	private Collection<UnitOfWork> unitsOfWork;
+	@OneToMany(fetch=FetchType.EAGER,
+			   targetEntity=UnitOfWork.class,
+			   mappedBy="estimation",
+			   cascade=CascadeType.ALL)
+	private Collection<UnitOfWork> unitsOfWork = new ArrayList<UnitOfWork>();
 	@ManyToOne
 	@JoinColumn(name="ID_SUBJECT")
 	private Subject subject;
@@ -72,6 +79,7 @@ public class Estimation implements Serializable {
 		this.label = label;
 	}
 
+	
 	public Collection<UnitOfWork> getUnitsOfWork() {
 		return unitsOfWork;
 	}
