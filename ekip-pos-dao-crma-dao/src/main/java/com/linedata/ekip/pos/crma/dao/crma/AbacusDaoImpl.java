@@ -30,8 +30,13 @@ public class AbacusDaoImpl implements AbacusDao{
 
 	@Override
 	public boolean updateElement(long idAbacus,long idComponent, long idComplexity) {
-		// TODO Auto-generated method stub
-		return false;
+		Component component = em.find(Component.class, idComponent);
+		Complexity complexity = em.find(Complexity.class, idComplexity);
+		Abacus abacus = em.find(Abacus.class, idAbacus);
+		abacus.setComponent(component);
+		abacus.setConplexity(complexity);
+		em.merge(abacus);
+		return true;
 	}
 
 	public EntityManager getEm() {
@@ -40,6 +45,19 @@ public class AbacusDaoImpl implements AbacusDao{
 
 	public void setEm(EntityManager em) {
 		this.em = em;
+	}
+
+	@Override
+	public boolean removeElement(long idAbacus) {
+		Abacus abacus = em.find(Abacus.class, idAbacus);
+		em.remove(abacus);
+		return true;
+	}
+
+	@Override
+	public Abacus getAbacusElements(long idAbacus) {
+		Abacus abacus = em.find(Abacus.class, idAbacus);
+		return abacus;
 	}
 
 }

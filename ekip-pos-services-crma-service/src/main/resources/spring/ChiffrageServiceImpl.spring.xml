@@ -2,20 +2,26 @@
 <beans default-lazy-init="true"
 	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-						http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+						http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
    
    
    <!-- Generated 27/03/2015 18:23:02 by Ekip Framework Released beta -->
    
-    <import resource="classpath:spring/Chiffrage.service-api.spring.xml" />
-    
-    <import resource="classpath:crma/spring/ChiffrageDaoImpl.spring.xml"/>
+   <context:component-scan base-package="com.linedata"/>
    
     <!-- ChiffrageServiceImpl -->
    <bean id="ChiffrageService" class="com.linedata.ekip.pos.services.crma.service.impl.ChiffrageServiceImpl">
-      <property name="mapper" ref="ChiffrageDetail"></property>
+     
    </bean>
+   
+   
+   
+   
    <bean id="ChiffrageDetail" class="com.linedata.ekip.std.services.core.bean.BeanMapper">
       <property name="mappingFiles">
          <list>
@@ -24,5 +30,38 @@
          </list>
       </property>
    </bean>
+   
+   
+
+	
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@tn1orc03:1521:LDSTOOLS" />
+		<property name="username" value="portal" />
+		<property name="password" value="portal" />
+	</bean>
+	
+	<bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+			<list>
+				<value>classpath*:META-INF/persistence.xml</value>
+			</list>
+		</property>	
+		<property name="defaultDataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="persistenceUnitManager"></property>
+		<property name="persistenceUnitName" value="unitPer"></property>
+	</bean>  
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<context:annotation-config></context:annotation-config>
    
 </beans>

@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,11 +34,11 @@ public class Estimation implements Serializable {
 	@Column(name="E_DATE")
 	private Date date;
 	private String label;
-	private String status;
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	@OneToMany(fetch=FetchType.EAGER,
 			   targetEntity=UnitOfWork.class,
-			   mappedBy="estimation",
-			   cascade=CascadeType.ALL)
+			   mappedBy="estimation")
 	private Collection<UnitOfWork> unitsOfWork = new ArrayList<UnitOfWork>();
 	@ManyToOne
 	@JoinColumn(name="ID_SUBJECT")
@@ -44,14 +46,13 @@ public class Estimation implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_AUTOR")
 	private Author author;
-
 	
 
-	public Estimation(Date date, String label, String status) {
+	public Estimation(Date date, String label, Status status) {
 		super();
 		this.date = date;
 		this.label = label;
-		this.status = status;
+		this.setStatus(status);
 	}
 
 	public Estimation() {
@@ -104,13 +105,6 @@ public class Estimation implements Serializable {
 		this.author = author;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	public Date getDate() {
 		return date;
@@ -119,4 +113,14 @@ public class Estimation implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+
 }

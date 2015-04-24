@@ -39,4 +39,29 @@ public class UnitOfWorkDaoImpl implements UnitOfWorkDao{
 		this.em = em;
 	}
 
+	@Override
+	public UnitOfWork updateUnitOfWork(UnitOfWork unit, long idAtionType,
+			long idAbaque) {
+		ActionType a = em.find(ActionType.class, idAtionType);
+		Abacus ab = em.find(Abacus.class, idAbaque);
+		unit.setAbacus(ab);unit.setActionType(a);
+		em.merge(unit);
+		return unit;
+	}
+
+	@Override
+	public boolean deleteUnitOfWork(long idUnit) {
+		UnitOfWork unit = em.find(UnitOfWork.class, idUnit);
+		
+		em.remove(unit);
+		
+		return true;
+	}
+
+	@Override
+	public UnitOfWork getUnitOfWorkDetail(long idUnitOfWork) {
+		UnitOfWork unit = em.find(UnitOfWork.class, idUnitOfWork);
+		return unit;
+	}
+
 }

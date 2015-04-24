@@ -17,7 +17,9 @@ public interface Chiffrage extends Entity, ChiffrageReference
          
 
    /**
-    * Return label : Label
+    * 
+
+ label : Label
     * 
     * @return label
     */

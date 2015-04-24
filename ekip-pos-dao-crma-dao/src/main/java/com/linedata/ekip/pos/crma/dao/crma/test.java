@@ -24,6 +24,7 @@ import com.linedata.ekip.pos.dao.model.impl.Complexity;
 import com.linedata.ekip.pos.dao.model.impl.Component;
 import com.linedata.ekip.pos.dao.model.impl.Estimation;
 import com.linedata.ekip.pos.dao.model.impl.Product;
+import com.linedata.ekip.pos.dao.model.impl.Status;
 import com.linedata.ekip.pos.dao.model.impl.Subject;
 import com.linedata.ekip.pos.dao.model.impl.UnitOfWork;
 
@@ -66,8 +67,8 @@ public abstract class test {
 		UnitOfWork unit3 = new UnitOfWork("unite 3", 5.5F);
 		UnitOfWork unit4 = new UnitOfWork("unite 4", 7);
 	
-		Estimation est1 = new Estimation(Calendar.getInstance().getTime(),"DOCUMENT 1","Créer");
-		Estimation est2 = new Estimation(Calendar.getInstance().getTime(),"DOCUMENT 2","Update");
+		Estimation est1 = new Estimation(Calendar.getInstance().getTime(),"DOCUMENT 1",Status.CREATE);
+		Estimation est2 = new Estimation(Calendar.getInstance().getTime(),"DOCUMENT 2",Status.UPDATE);
 		
 		estimationDao.addEstimation(est1, a.getId(), s.getId());
 		estimationDao.addEstimation(est2, a.getId(), s.getId());
@@ -83,9 +84,11 @@ public abstract class test {
 		ActionType action = new ActionType("Creation", 5);
 		actionTypeDao.addActionType(action);
 		
+		ActionType action1 = new ActionType("Modification", 15);
+		actionTypeDao.addActionType(action1);
 		
 		Abacus abac = new Abacus(5.2F);
-		Abacus abac2 = new Abacus(5.2F);
+		Abacus abac2 = new Abacus(10);
 		
 		abacusDao.addElement(abac, comp.getId(), comx.getId());
 		abacusDao.addElement(abac2, comp2.getId(), comx.getId());
@@ -106,6 +109,30 @@ public abstract class test {
 		System.out.println(estimationDao.getEstimation(est2.getId()).getUnitsOfWork().size());
 		
 
+		Author a1 = new Author();
+		a1.setName("Bassem");
+		a1.setFunction("Chef de projet");
+		authorDao.addAuthor(a1);
+		
+		est1.setAuthor(a1);
+		est1.setLibelle("EPIC 1");
+		estimationDao.updateEstimation(est1);
+		
+		
+		unitOfWorkDao.updateUnitOfWork(unit1, action1.getId(), abac.getIdAbacus());
+		
+		UnitOfWork unit = unitOfWorkDao.getUnitOfWorkDetail(unit1.getId());
+		
+		System.out.println("unite est "+unit.getLabel());
+		
+		unitOfWorkDao.deleteUnitOfWork(unit2.getId());
+		
+		
+		
+		System.out.println("Abaque est "+abacusDao.getAbacusElements(abac2.getIdAbacus()).getConplexity().getLabel());
+
+		abacusDao.removeElement(abac2.getIdAbacus());
+		
 	}
 
 }

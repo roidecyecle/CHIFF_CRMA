@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.linedata.ekip.pos.crma.api.EstimationDao;
 import com.linedata.ekip.pos.dao.model.impl.Author;
 import com.linedata.ekip.pos.dao.model.impl.Estimation;
+import com.linedata.ekip.pos.dao.model.impl.Status;
 import com.linedata.ekip.pos.dao.model.impl.Subject;
 import com.linedata.ekip.pos.dao.model.impl.UnitOfWork;
 
@@ -65,6 +66,22 @@ public class EstimationDaoImpl implements EstimationDao{
 
 	public void setEm(EntityManager em) {
 		this.em = em;
+	}
+
+
+
+	@Override
+	public Estimation updateEstimation(Estimation estimation) {
+		em.merge(estimation);
+		return estimation;
+	}
+
+
+
+	@Override
+	public Estimation ChangeStatus(long idEstimation, Status st) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

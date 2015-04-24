@@ -39,7 +39,7 @@ public interface ChiffrageService extends Service
     * @return Chiffrage
     */
    Chiffrage create(ActionContext actionContext, Chiffrage chiffrage) throws EkipServiceException;
-
+   void ajout ();
 
 
 }
