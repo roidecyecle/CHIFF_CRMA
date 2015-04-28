@@ -11,4 +11,5 @@ public interface ProductDao {
 	public boolean updatePoduct(long idProduct);
 	public ProductDao findProductByLabel(String label);
 	public List<ProductDao> findAllProduct();
+	public Product getProduct(long idProduct);
 }
